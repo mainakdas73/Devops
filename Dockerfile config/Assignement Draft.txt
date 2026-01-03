@@ -1,0 +1,172 @@
+root@ansible1:~# git clone https://github.com/Msocial123/Recruitment-App-Project.git
+Cloning into 'Recruitment-App-Project'...
+remote: Enumerating objects: 33, done.
+remote: Counting objects: 100% (33/33), done.
+remote: Compressing objects: 100% (23/23), done.
+remote: Total 33 (delta 7), reused 33 (delta 7), pack-reused 0 (from 0)
+Receiving objects: 100% (33/33), 617.54 KiB | 16.69 MiB/s, done.
+Resolving deltas: 100% (7/7), done.
+root@ansible1:~# ls -l
+total 8
+drwxr-xr-x 6 root root 4096 Jan  2 06:52 Recruitment-App-Project
+drwx------ 3 root root 4096 Dec 24 06:25 snap
+root@ansible1:~# cd Recruitment-App-Project/
+root@ansible1:~/Recruitment-App-Project# ls -l
+total 92
+-rw-r--r-- 1 root root 14730 Jan  2 06:52 hr-implemented-microservices.mmd
+drwxr-xr-x 2 root root  4096 Jan  2 06:52 mongo-init
+drwxr-xr-x 2 root root  4096 Jan  2 06:52 mongo-init-dev
+-rw-r--r-- 1 root root 39436 Jan  2 06:52 package-lock.json
+-rw-r--r-- 1 root root   577 Jan  2 06:52 package.json
+drwxr-xr-x 2 root root  4096 Jan  2 06:52 public
+-rw-r--r-- 1 root root 17498 Jan  2 06:52 server.js
+root@ansible1:~/Recruitment-App-Project# vi Dockerfile
+root@ansible1:~/Recruitment-App-Project# docker build -t recruitment-app:1.0 .
+[+] Building 55.5s (10/10) FINISHED                                                         docker:default
+ => [internal] load build definition from Dockerfile                                                  0.1s
+ => => transferring dockerfile: 152B                                                                  0.0s
+ => [internal] load metadata for docker.io/library/node:latest                                        3.1s
+ => [internal] load .dockerignore                                                                     0.1s
+ => => transferring context: 947B                                                                     0.0s
+ => [1/5] FROM docker.io/library/node:latest@sha256:6d362f0df70431417ef79c30e47c0515ea9066d8be8011e  40.5s
+ => => resolve docker.io/library/node:latest@sha256:6d362f0df70431417ef79c30e47c0515ea9066d8be8011e8  0.1s
+ => => sha256:d0685dc4844a986b6e8157c6cbc8b3323c5bb38d7be7785110cb0dbd78045c80 446B / 446B            0.5s
+ => => sha256:e23bb902ff9eab98ef1bd51e5a730a055d17fbda8618a8db84d38153bb1cf51e 1.25MB / 1.25MB        0.8s
+ => => sha256:01938a8434c59a276a5e8c8fe28916dbf67847c1ea0d15cc8951376d4788e78b 56.16MB / 56.16MB      5.1s
+ => => sha256:d0060ea1869cc1dabda25c43283da6795c5cfcbe3d06e94e86632a27b927e893 3.32kB / 3.32kB        0.9s
+ => => sha256:318d61060ae74f5254974208e92a54f807b028710293f41900249bc6033acf41 211.47MB / 211.47MB    8.4s
+ => => sha256:a858b7813255a9cb57d05f02b50978e5b5965b0cfc040288fa29905cdc65ad9a 64.40MB / 64.40MB      4.3s
+ => => sha256:16afb0fdc4694732853f4fbf5125c1dcb35f20cca5bec77a98d73d0d3124f855 24.03MB / 24.03MB      3.6s
+ => => sha256:32a5bf163bd75109aaa8d446f1570117432475cbb2df3fb6f89dd243bcedd1f3 48.48MB / 48.48MB      2.7s
+ => => extracting sha256:32a5bf163bd75109aaa8d446f1570117432475cbb2df3fb6f89dd243bcedd1f3             4.3s
+ => => extracting sha256:16afb0fdc4694732853f4fbf5125c1dcb35f20cca5bec77a98d73d0d3124f855             1.7s
+ => => extracting sha256:a858b7813255a9cb57d05f02b50978e5b5965b0cfc040288fa29905cdc65ad9a             5.0s
+ => => extracting sha256:318d61060ae74f5254974208e92a54f807b028710293f41900249bc6033acf41            15.3s
+ => => extracting sha256:d0060ea1869cc1dabda25c43283da6795c5cfcbe3d06e94e86632a27b927e893             0.1s
+ => => extracting sha256:01938a8434c59a276a5e8c8fe28916dbf67847c1ea0d15cc8951376d4788e78b             5.4s
+ => => extracting sha256:e23bb902ff9eab98ef1bd51e5a730a055d17fbda8618a8db84d38153bb1cf51e             0.1s
+ => => extracting sha256:d0685dc4844a986b6e8157c6cbc8b3323c5bb38d7be7785110cb0dbd78045c80             0.0s
+ => [internal] load build context                                                                     0.2s
+ => => transferring context: 655.44kB                                                                 0.0s
+ => [2/5] WORKDIR /app                                                                                0.4s
+ => [3/5] COPY package*.json ./                                                                       0.2s
+ => [4/5] RUN npm install                                                                             6.3s
+ => [5/5] COPY . .                                                                                    1.2s
+ => exporting to image                                                                                3.1s
+ => => exporting layers                                                                               2.0s
+ => => exporting manifest sha256:8b1199ae0068b006fd51a6fb6e6bac34f7acbe18019b7cb0e2bd0b7080144115     0.0s
+ => => exporting config sha256:19df1a0cd57be082dbc655d9cc8e75fbf7bae825ceebb9acc12ca4f20a6d4727       0.0s
+ => => exporting attestation manifest sha256:b9ff25e6e21de4bde22fec91f5b6f9773b9c42dc5d2d052fc74a0df  0.1s
+ => => exporting manifest list sha256:7a45385ef100dd26cb17d200da9fba7ac41e6a8df7ca07c3f3a627f55afd5c  0.0s
+ => => naming to docker.io/library/recruitment-app:1.0                                                0.0s
+ => => unpacking to docker.io/library/recruitment-app:1.0                                             0.8s
+root@ansible1:~/Recruitment-App-Project# docker images
+                                                                                       i Info →   U  In Use
+IMAGE                 ID             DISK USAGE   CONTENT SIZE   EXTRA
+hello-world:latest    d4aaab6242e0       25.9kB         9.52kB    U
+jenkins/jenkins:lts   1e407df1a9bc        822MB          293MB    U
+myimage:1.0.0         0125a69d6d13        367MB          105MB    U
+recruitment-app:1.0   7a45385ef100       1.65GB          413MB
+root@ansible1:~/Recruitment-App-Project# docker ps
+CONTAINER ID   IMAGE           COMMAND                  CREATED        STATUS        PORTS                                                NAMES
+db190dd5a35c   myimage:1.0.0   "apachectl -D FOREGR…"   40 hours ago   Up 40 hours   0.0.0.0:82->80/tcp, [:               :]:82->80/tcp   myweb
+root@ansible1:~/Recruitment-App-Project# docker login
+
+USING WEB-BASED LOGIN
+
+i Info → To sign in with credentials on the command line, use 'docker login -u <username>'
+
+
+Your one-time device confirmation code is: RDDQ-XTHL
+Press ENTER to open your browser or submit your device code here: https://login.docker.com/activate
+
+Waiting for authentication in the browser…
+^Clogin canceled
+root@ansible1:~/Recruitment-App-Project# docker login mainakdas73
+Username: mainakdas73
+Password:
+Error response from daemon: Get "https://mainakdas73/v2/": dial tcp: lookup mainakdas73 on 127.0.0.53:53: s               erver misbehaving
+root@ansible1:~/Recruitment-App-Project# docker login mainakdas73@gmail.com
+Username: mainakdas73
+Password:
+Error response from daemon: login attempt to https://gmail.com/v2/ failed with status: 404 Not Found
+root@ansible1:~/Recruitment-App-Project# docker login
+
+USING WEB-BASED LOGIN
+
+i Info → To sign in with credentials on the command line, use 'docker login -u <username>'
+
+
+Your one-time device confirmation code is: ZJNW-WWTD
+Press ENTER to open your browser or submit your device code here: https://login.docker.com/activate
+
+Waiting for authentication in the browser…
+^Clogin canceled
+root@ansible1:~/Recruitment-App-Project# docker login -u mainakdas73
+
+i Info → A Personal Access Token (PAT) can be used instead.
+         To create a PAT, visit https://app.docker.com/settings
+
+
+Password:
+
+WARNING! Your credentials are stored unencrypted in '/root/.docker/config.json'.
+Configure a credential helper to remove this warning. See
+https://docs.docker.com/go/credential-store/
+
+Login Succeeded
+root@ansible1:~/Recruitment-App-Project#
+root@ansible1:~/Recruitment-App-Project# docker push mainakdas73/recruitment-app:1.0
+The push refers to repository [docker.io/mainakdas73/recruitment-app]
+tag does not exist: mainakdas73/recruitment-app:1.0
+root@ansible1:~/Recruitment-App-Project# docker tag recruitment-app:1.0 mainakdas73/recuitment-app:1.0
+root@ansible1:~/Recruitment-App-Project# docker push mainakdas73/recruitment-app:1.0
+The push refers to repository [docker.io/mainakdas73/recruitment-app]
+tag does not exist: mainakdas73/recruitment-app:1.0
+root@ansible1:~/Recruitment-App-Project# docker images
+                                                                                       i Info →   U  In Use
+IMAGE                            ID             DISK USAGE   CONTENT SIZE   EXTRA
+hello-world:latest               d4aaab6242e0       25.9kB         9.52kB    U
+jenkins/jenkins:lts              1e407df1a9bc        822MB          293MB    U
+mainakdas73/recuitment-app:1.0   7a45385ef100       1.65GB          413MB
+myimage:1.0.0                    0125a69d6d13        367MB          105MB    U
+recruitment-app:1.0              7a45385ef100       1.65GB          413MB
+root@ansible1:~/Recruitment-App-Project# docker tag recruitment-app:1.0 mainakdas73/recuitment-app:1.0
+root@ansible1:~/Recruitment-App-Project# docker push mainakdas73/recruitment-app:1.0
+The push refers to repository [docker.io/mainakdas73/recruitment-app]
+tag does not exist: mainakdas73/recruitment-app:1.0
+root@ansible1:~/Recruitment-App-Project# docker images
+                                                                                       i Info →   U  In Use
+IMAGE                            ID             DISK USAGE   CONTENT SIZE   EXTRA
+hello-world:latest               d4aaab6242e0       25.9kB         9.52kB    U
+jenkins/jenkins:lts              1e407df1a9bc        822MB          293MB    U
+mainakdas73/recuitment-app:1.0   7a45385ef100       1.65GB          413MB
+myimage:1.0.0                    0125a69d6d13        367MB          105MB    U
+recruitment-app:1.0              7a45385ef100       1.65GB          413MB
+root@ansible1:~/Recruitment-App-Project# docker tag recruitment-app:1.0 mainakdas73/recruitment-app:1.0
+root@ansible1:~/Recruitment-App-Project# docker images
+                                                                                       i Info →   U  In Use
+IMAGE                             ID             DISK USAGE   CONTENT SIZE   EXTRA
+hello-world:latest                d4aaab6242e0       25.9kB         9.52kB    U
+jenkins/jenkins:lts               1e407df1a9bc        822MB          293MB    U
+mainakdas73/recruitment-app:1.0   7a45385ef100       1.65GB          413MB
+mainakdas73/recuitment-app:1.0    7a45385ef100       1.65GB          413MB
+myimage:1.0.0                     0125a69d6d13        367MB          105MB    U
+recruitment-app:1.0               7a45385ef100       1.65GB          413MB
+root@ansible1:~/Recruitment-App-Project# docker push mainakdas73/recruitment-app:1.0
+The push refers to repository [docker.io/mainakdas73/recruitment-app]
+d0685dc4844a: Pushed
+0f0dcff58747: Pushed
+fdaa0185a92c: Pushed
+3a84f550f9ab: Pushed
+ec696eb41102: Pushed
+5a8aea202db4: Pushed
+16afb0fdc469: Pushed
+a858b7813255: Pushed
+d0060ea1869c: Pushed
+32a5bf163bd7: Pushed
+318d61060ae7: Pushed
+01938a8434c5: Pushed
+e23bb902ff9e: Pushed
+1.0: digest: sha256:7a45385ef100dd26cb17d200da9fba7ac41e6a8df                                                             7ca07c3f3a627f55afd5cce size: 856
+root@ansible1:~/Recruitment-App-Project#
